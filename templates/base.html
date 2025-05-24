@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.5.1/SmoothScroll.min.js "></script>
+    <link rel="stylesheet" href="/static/css/aos-master/dist/aos.css" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        nunito: ['Nunito', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="bg-white text-slate-800 font-nunito">
+    <nav class="absolute top-0 left-0 w-full z-30">
+        <div class="max-w-screen-lg mx-auto px-4 py-4 flex items-center justify-between relative z-30">
+            <a href="/" class="text-lg font-semibold font-poppins {% if page == 'index' %}text-white{% else %}text-black{% endif %}">Neighbor Help</a>
+            <div class="flex gap-6 {% if page == 'index' %}text-white{% else %}text-black{% endif %}">
+                <a href="/" class="{% if page == 'index' %}hover:text-slate-300{% else %}hover:text-gray-600{% endif %} cursor-pointer">Home</a>
+                <a href="/posts" class="{% if page == 'index' %}hover:text-slate-300{% else %}hover:text-gray-600{% endif %} cursor-pointer">Posts</a>
+                <a href="#about" class="{% if page == 'index' %}hover:text-slate-300{% else %}hover:text-gray-600{% endif %} cursor-pointer">About</a>
+                <a href="#contact" class="{% if page == 'index' %}hover:text-slate-300{% else %}hover:text-gray-600{% endif %} cursor-pointer">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    {% block content %}
+
+    {% endblock %}
+
+    <!-- Fotter -->
+    <footer class="bg-gray-800 text-white py-6 mt-16">
+        <div class="max-w-screen-lg mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-sm">&copy; 2025 Neighbor Help. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/static/css/aos-master/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
