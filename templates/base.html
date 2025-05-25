@@ -57,6 +57,29 @@
     <script>
         AOS.init();
     </script>
+
+    <script>
+        function openModal() {
+            const modal = document.getElementById('myModal');
+            const box = document.getElementById('modalBox');
+    
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                box.classList.remove('scale-95', 'opacity-0');
+                box.classList.add('scale-100', 'opacity-100');
+            }, 10); // Allow time for initial hidden state to apply
+        }
+    
+        function closeModal() {
+            const box = document.getElementById('modalBox');
+            box.classList.remove('scale-100', 'opacity-100');
+            box.classList.add('scale-95', 'opacity-0');
+    
+            setTimeout(() => {
+                document.getElementById('myModal').classList.add('hidden');
+            }, 300); // Match this to the transition duration
+        }
+    </script>
 </body>
 
 </html>

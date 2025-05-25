@@ -1,6 +1,74 @@
 {% extends 'base.html' %}
 
+{% block title %}Posts{% endblock %}
 
 {% block content %}
+<section class="mt-20 flex justify-end px-5 max-w-screen-lg mx-auto">
+    <button class="bg-slate-600 hover:bg-mint-600 text-white font-semibold py-2 px-4 rounded shadow"
+        onclick="openModal()">Add Post</button>
 
+    <div id="myModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div id="modalBox" class="bg-white rounded-lg shadow-lg p-6 w-11/12 max-w-md transform scale-75 opacity-0 transition-all duration-300 relative">
+            <h2 class="text-xl font-semibold mb-4">Add Post</h2>
+            <p class="mb-4">This is a simple modal with animation.</p>
+            <form action="/posts/create" method="POST" class="space-y-4">
+                <div>
+                    <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+                    <input type="text" name="title" id="title" required
+                        class="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300">
+                </div>
+
+                <div class="mb-4">
+                    <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+                    <select id="category" name="category" required class="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm 
+                                   focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">Select a category</option>
+                        <option value="errands">Errands</option>
+                        <option value="childcare">Childcare</option>
+                        <option value="elderly_care">Elderly Care</option>
+                        <option value="pet_care">Pet Care</option>
+                        <option value="repairs">Repairs</option>
+                        <option value="tutoring">Tutoring</option>
+                        <option value="tech_help">Tech Help</option>
+                        <option value="gardening">Gardening</option>
+                        <option value="free_items">Free Items</option>
+                        <option value="requests">Requests</option>
+                        <option value="events">Events</option>
+                        <option value="volunteering">Volunteering</option>
+                        <option value="lost_found">Lost & Found</option>
+                        <option value="general">General Help</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                    <textarea name="description" id="description" rows="4" required
+                        class="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"></textarea>
+                </div>
+
+                <div>
+                    <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+                    <input type="text" name="location" id="location" required
+                        class="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300">
+                </div>
+
+                <div>
+                    <label for="contact" class="block text-sm font-medium text-gray-700">Contact</label>
+                    <input type="number" name="contact" id="contact" required
+                        class="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300">
+                </div>
+
+                <div class="flex justify-end gap-2 pt-2">
+                    <button type="button" onclick="closeModal()"
+                        class="px-4 py-2 rounded bg-gray-300 text-gray-800 hover:bg-gray-400">Cancel</button>
+                    <button type="submit"
+                        class="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700">Submit</button>
+                </div>
+            </form>
+            <button onclick="closeModal()"
+                class="absolute top-0 right-2 text-gray-600 hover:text-gray-900 text-2xl mr-1">&times;</button>
+        </div>
+    </div>
+
+</section>
 {% endblock %}
