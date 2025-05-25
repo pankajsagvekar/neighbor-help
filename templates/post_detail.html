@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post[1].title() }}{% endblock %}
+
+{% block content %}
+<div class="max-w-screen-md mx-auto p-6 mt-20 bg-white rounded-lg shadow-md">
+  <h1 class="text-3xl font-bold mb-4">{{ post[1].title() }}</h1>
+  
+  <p class="text-gray-600 mb-2"><strong>Category:</strong> {{ post[3].replace('_', ' ').title() }}</p>
+  <p class="text-gray-600 mb-2"><strong>Location:</strong> {{ post[4] }}</p>
+  <p class="text-gray-600 mb-4"><strong>Contact:</strong> {{ post[5] }}</p>
+  <p class="text-gray-600 mb-4"><strong>Date Posted:</strong> {{ post[6] }}</p>
+
+  <p class="text-gray-800 whitespace-pre-line">{{ post[2] }}</p> <!-- full description -->
+  
+  <a href="{{ url_for('show_posts') }}" class="inline-block mt-6 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Back to Posts</a>
+</div>
+{% endblock %}
