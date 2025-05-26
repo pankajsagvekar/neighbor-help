@@ -8,11 +8,9 @@
         onclick="openModal()">Add Post</button>
 
     <div id="myModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div id="modalBox"
-            class="bg-white rounded-lg shadow-lg p-6 w-11/12 max-w-md transform scale-75 opacity-0 transition-all duration-300 relative">
+        <div id="modalBox" class="bg-white rounded-lg shadow-lg p-6 w-11/12 max-w-md transform scale-75 opacity-0 transition-all duration-300 relative">
             <h2 class="text-xl font-semibold mb-4">Add Post</h2>
-            <p class="mb-4">This is a simple modal with animation.</p>
-            <form action="/add_post" method="POST" class="space-y-4">
+            <form action="/add_post" method="POST" enctype="multipart/form-data" class="space-y-4">
                 <div>
                     <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
                     <input type="text" name="title" id="title" required
@@ -43,7 +41,7 @@
 
                 <div>
                     <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                    <textarea name="description" id="description" rows="4" required
+                    <textarea name="description" id="description" rows="2" required
                         class="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"></textarea>
                 </div>
 
@@ -57,6 +55,17 @@
                     <label for="contact" class="block text-sm font-medium text-gray-700">Contact</label>
                     <input type="number" name="contact" id="contact" required
                         class="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300">
+                </div>
+
+                <div>
+                    <label for="image" class="block text-sm font-medium text-gray-700">Upload Image</label>
+                    <input type="file" name="image">
+                </div>
+
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Secret Password</label>
+                    <input type="password" name="password" id="password" required
+                           class="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300">
                 </div>
 
                 <div class="flex justify-end gap-2 pt-2">
@@ -73,14 +82,19 @@
 
 </section>
 
-<section class="max-w-screen-lg mx-auto p-5 mt-20 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+<section class="max-w-screen-lg mx-auto p-5 mt-15 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
     {% for post in posts %}
-    <a href="{{ url_for('post_detail', post_id=post[0]) }}"
-        class="block bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow duration-300">
-        <h3 class="text-xl font-semibold mb-2">{{ post[1].title() }}</h3> <!-- title -->
+    <a href="{{ url_for('post_detail', post_id=post[0]) }}" class="block bg-slate-50 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+        <h3 class="text-xl font-semibold mb-2">{{ post[1].title() }}</h3>
+        {% if post[7] %}
+        <img src="{{ url_for('static', filename='uploads/' + post[7]) }}" alt="Post Image" class="mb-2 rounded w-full max-h-48 object-cover">
+        {% endif %}
         <p class="text-gray-700 mb-4">{{ post[2][:100] }}{% if post[2]|length > 100 %}...{% endif %}</p>
-        <!-- short description -->
-        <p class="text-sm text-gray-500 mb-2 tracking-wide">{{ post[3].replace('_', ' ').title() }}</p> <!-- category -->
+        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded-sm">{{ post[3].replace('_', ' ').title() }}</span>
+        <br>
+        <br>
+        
+        <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-md">Read More</button>
     </a>
     {% else %}
     <p class="text-center text-gray-500">No posts found.</p>

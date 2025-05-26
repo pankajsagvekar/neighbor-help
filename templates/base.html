@@ -28,8 +28,8 @@
 
 </head>
 
-<body class="bg-white text-slate-800 font-nunito">
-    <nav class="absolute top-0 left-0 w-full z-30">
+<body class="{% if page == 'posts' %}bg-[url('/static/pattern.svg')] bg-repeat max-h-screen{% else %}bg-white{% endif %} text-slate-800 font-nunito">
+    <nav class="absolute top-0 left-0 w-full z-30 {% if page == 'posts'%}bg-white {% endif %}">
         <div class="max-w-screen-lg mx-auto px-4 py-4 flex items-center justify-between relative z-30">
             <a href="/" class="text-lg font-semibold font-poppins {% if page == 'index' %}text-white{% else %}text-black{% endif %}">Neighbor Help</a>
             <div class="flex gap-6 {% if page == 'index' %}text-white{% else %}text-black{% endif %}">

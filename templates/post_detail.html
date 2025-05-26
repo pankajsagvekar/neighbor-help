@@ -5,6 +5,9 @@
 {% block content %}
 <div class="max-w-screen-md mx-auto p-6 mt-20 bg-white rounded-lg shadow-md">
   <h1 class="text-3xl font-bold mb-4">{{ post[1].title() }}</h1>
+  {% if post[7] %}
+  <img src="{{ url_for('static', filename='uploads/' + post[7]) }}" alt="Post Image" class="mb-2 rounded w-full max-h-2/4 object-cover">
+  {% endif %}
   
   <p class="text-gray-600 mb-2"><strong>Category:</strong> {{ post[3].replace('_', ' ').title() }}</p>
   <p class="text-gray-600 mb-2"><strong>Location:</strong> {{ post[4] }}</p>
@@ -14,5 +17,11 @@
   <p class="text-gray-800 whitespace-pre-line">{{ post[2] }}</p> <!-- full description -->
   
   <a href="{{ url_for('show_posts') }}" class="inline-block mt-6 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Back to Posts</a>
+
+  <form action="{{ url_for('delete_post', post_id=post[0]) }}" method="POST" class="mt-6 space-y-2">
+    <label for="password" class="block text-sm font-medium text-gray-700">Enter password to delete</label>
+    <input type="password" name="password" required class="w-full border rounded-md px-3 py-2">
+    <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Delete Post</button>
+  </form>
 </div>
 {% endblock %}
