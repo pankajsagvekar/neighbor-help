@@ -5,11 +5,11 @@
 {% block content %}
 <section class="mt-20 flex justify-end px-5 max-w-screen-lg mx-auto">
     <button class="bg-slate-600 hover:bg-mint-600 text-white font-semibold py-2 px-4 rounded shadow"
-        onclick="openModal()">Add Post</button>
+        onclick="openModal()">Create Post</button>
 
     <div id="myModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
         <div id="modalBox" class="bg-white rounded-lg shadow-lg p-6 w-11/12 max-w-md transform scale-75 opacity-0 transition-all duration-300 relative">
-            <h2 class="text-xl font-semibold mb-4">Add Post</h2>
+            <h2 class="text-xl font-semibold mb-4">Create Post</h2>
             <form action="/add_post" method="POST" enctype="multipart/form-data" class="space-y-4">
                 <div>
                     <label for="title" class="block text-sm font-medium text-gray-700">Title</label>

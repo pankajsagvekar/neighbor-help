@@ -15,6 +15,16 @@ NeighborHelp is a web application designed to connect community members by shari
 - Frontend: Tailwind CSS
 - Deployment: Compatible with Render or any platform supporting Flask apps
 
+## Screenshots
+### Home Page
+![Home Page](screenshots/home.png)
+
+### Create a Post
+![Create Post](screenshots/addpost.png)
+
+### Browse Posts
+![Browse Posts](screenshots/posts.png)
+
 ---
 
 Built for **Amplicode Hackathon 2025** — promoting social good through technology.
