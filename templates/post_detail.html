@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ post[1].title() }}{% endblock %}
+{% block title %}{{ post[1].title() }} | Posts{% endblock %}
 
 {% block content %}
 <div class="max-w-screen-md mx-auto p-6 mt-20 bg-white rounded-lg shadow-md">
@@ -14,8 +14,7 @@
   <p class="text-gray-600 mb-4"><strong>Contact:</strong> {{ post[5] }}</p>
   <p class="text-gray-600 mb-4"><strong>Date Posted:</strong> {{ post[6] }}</p>
 
-  <p class="text-gray-800 whitespace-pre-line">{{ post[2] }}</p> <!-- full description -->
-  
+  <p class="text-gray-800 whitespace-pre-line">{{ post[2] }}</p>
   <a href="{{ url_for('show_posts') }}" class="inline-block mt-6 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Back to Posts</a>
 
   <form action="{{ url_for('delete_post', post_id=post[0]) }}" method="POST" class="mt-6 space-y-2">

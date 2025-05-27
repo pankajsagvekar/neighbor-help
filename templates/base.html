@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/static/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/static/favicon.png" type="image/x-icon">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.5.1/SmoothScroll.min.js "></script>
     <link rel="stylesheet" href="/static/css/aos-master/dist/aos.css" />
@@ -35,8 +36,8 @@
             <div class="flex gap-6 {% if page == 'index' %}text-white{% else %}text-black{% endif %}">
                 <a href="/" class="{% if page == 'index' %}hover:text-slate-300{% else %}hover:text-gray-600{% endif %} cursor-pointer">Home</a>
                 <a href="/posts" class="{% if page == 'index' %}hover:text-slate-300{% else %}hover:text-gray-600{% endif %} cursor-pointer">Posts</a>
-                <a href="#about" class="{% if page == 'index' %}hover:text-slate-300{% else %}hover:text-gray-600{% endif %} cursor-pointer">About</a>
-                <a href="#contact" class="{% if page == 'index' %}hover:text-slate-300{% else %}hover:text-gray-600{% endif %} cursor-pointer">Contact</a>
+                <a href="/#about" class="{% if page == 'index' %}hover:text-slate-300{% else %}hover:text-gray-600{% endif %} cursor-pointer">About</a>
+                <a href="/#contact" class="{% if page == 'index' %}hover:text-slate-300{% else %}hover:text-gray-600{% endif %} cursor-pointer">Contact</a>
             </div>
         </div>
     </nav>
@@ -67,7 +68,7 @@
             setTimeout(() => {
                 box.classList.remove('scale-95', 'opacity-0');
                 box.classList.add('scale-100', 'opacity-100');
-            }, 10); // Allow time for initial hidden state to apply
+            }, 10);
         }
     
         function closeModal() {
@@ -77,7 +78,7 @@
     
             setTimeout(() => {
                 document.getElementById('myModal').classList.add('hidden');
-            }, 300); // Match this to the transition duration
+            }, 300);
         }
     </script>
 </body>
