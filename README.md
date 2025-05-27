@@ -5,8 +5,6 @@ NeighborHelp is a web application designed to connect community members by shari
 ## Features
 
 - Post and browse community resources with categories and location info
-- Mark resources as helpful to highlight useful posts
-- Comment on resource posts to ask questions or provide feedback
 - Clean, responsive UI built with Tailwind CSS
 - Backend powered by Flask and SQLite for easy deployment and management
 
